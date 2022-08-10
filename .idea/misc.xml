@@ -8,12 +8,18 @@
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/btn_google.xml" value="0.1735" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/btn_style.xml" value="0.1735" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/header.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic__057190_more_o_icon.xml" value="0.1305" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic__057625_facebook_media_network_social_icon.xml" value="0.1735" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic__993685_brand_brands_google_logo_logos_icon.xml" value="0.1735" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic__home.xml" value="0.1305" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/login_style.xml" value="0.1735" />
-        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/layout/activity_main.xml" value="0.10989583333333333" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/nav_background.xml" value="0.117" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/layout/fragment_favorite.xml" value="0.17407407407407408" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/layout/fragment_home.xml" value="0.2359375" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/layout/fragment_login.xml" value="0.264" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/layout/fragment_registration.xml" value="0.25" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/menu/main_menu.xml" value="0.24895833333333334" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1135" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1135" />
       </map>

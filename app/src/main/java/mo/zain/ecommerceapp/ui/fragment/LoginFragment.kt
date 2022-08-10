@@ -1,6 +1,7 @@
 package mo.zain.ecommerceapp.ui.fragment
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -18,6 +19,8 @@ import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import mo.zain.ecommerceapp.R
+import mo.zain.ecommerceapp.ui.AuthenticationActivity
+import mo.zain.ecommerceapp.ui.MainActivity
 import mo.zain.ecommerceapp.viewModel.UserViewModel
 
 
@@ -86,6 +89,9 @@ class LoginFragment : Fragment() {
                     viewModel.Login().value?.data!!.token.trim()).apply()
 
                 progressBar2.visibility=View.INVISIBLE
+                val intent=Intent(requireContext(),MainActivity::class.java)
+                requireActivity().startActivity(intent)
+                requireActivity().finish()
             }else
             {
                 Toast.makeText(requireContext(), ""+
