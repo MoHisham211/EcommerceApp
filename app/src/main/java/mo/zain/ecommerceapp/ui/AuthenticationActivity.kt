@@ -1,5 +1,8 @@
 package mo.zain.ecommerceapp.ui
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.findNavController
@@ -23,11 +26,19 @@ class AuthenticationActivity : AppCompatActivity() {
         TODO-->   1-->Login   Done
      */
 
-
+    var myShared:SharedPreferences ?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_authentication)
         supportActionBar?.hide()
+        myShared=getSharedPreferences("Token", Context.MODE_PRIVATE)
+
+        if (!myShared?.getString("Token","").isNullOrEmpty())
+        {
+            startActivity(Intent(this@AuthenticationActivity,MainActivity::class.java))
+            finish()
+        }
+
         /*
             Important in xml MainActivity-----> app:defaultNavHost="true"
             true --->تعني ان لما ارجع لازم اعدي علي كل حاجه فتحتها

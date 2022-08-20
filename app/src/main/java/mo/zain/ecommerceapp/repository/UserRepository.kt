@@ -17,4 +17,6 @@ class UserRepository
 
 
     suspend fun loginUser(email: String,password: String)=apiService.loginUser(email, password)
+
+    suspend fun getHome(token:String)=apiService.getHome(token)
 }

@@ -1,11 +1,13 @@
 package mo.zain.ecommerceapp.viewModel
 
+import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import mo.zain.ecommerceapp.model.LoginResponse
-import mo.zain.ecommerceapp.model.RegisterResponse
-import mo.zain.ecommerceapp.model.RegistrationItem
+import kotlinx.coroutines.launch
+import mo.zain.ecommerceapp.model.*
 import mo.zain.ecommerceapp.repository.UserRepository
 import okhttp3.MultipartBody
 import javax.inject.Inject
@@ -29,11 +31,17 @@ class UserViewModel
     fun Login():MutableLiveData<LoginResponse>{
         return _loginResponse
     }
+    //
+
+    private val _response=MutableLiveData<Data>()
+    val responseItem:LiveData<Data>
+        get() = _response
 
 
     init {
         register()
         Login()
+        //getHome()
     }
 
     //Call In Fragment S00N -->
@@ -47,4 +55,16 @@ class UserViewModel
         loginDetails=repository.loginUser(email, password)
         _loginResponse.value=loginDetails
     }
+
+    fun getHome(token:String)=viewModelScope.launch {
+        repository.getHome(token).let { response ->
+            if (response.isSuccessful)
+            {
+                _response.postValue(response.body()?.data)
+            }
+        }
+
+    }
+
+
 }
