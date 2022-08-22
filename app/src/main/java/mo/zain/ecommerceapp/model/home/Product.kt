@@ -1,4 +1,4 @@
-package mo.zain.ecommerceapp.model
+package mo.zain.ecommerceapp.model.home
 
 data class Product(
     val description: String,

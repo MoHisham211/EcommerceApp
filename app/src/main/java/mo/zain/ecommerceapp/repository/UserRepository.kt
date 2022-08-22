@@ -1,10 +1,6 @@
 package mo.zain.ecommerceapp.repository
 
 import mo.zain.ecommerceapp.api.ApiService
-import mo.zain.ecommerceapp.model.RegistrationItem
-import okhttp3.MultipartBody
-import retrofit2.http.Part
-import retrofit2.http.Query
 import javax.inject.Inject
 
 class UserRepository
@@ -19,4 +15,6 @@ class UserRepository
     suspend fun loginUser(email: String,password: String)=apiService.loginUser(email, password)
 
     suspend fun getHome(token:String)=apiService.getHome(token)
+
+    suspend fun getCategory()=apiService.getCategory()
 }

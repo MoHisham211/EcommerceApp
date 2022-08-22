@@ -1,4 +1,4 @@
-package mo.zain.ecommerceapp.model
+package mo.zain.ecommerceapp.model.login
 
 data class LoginResponse(
     val data: LogiinItem,

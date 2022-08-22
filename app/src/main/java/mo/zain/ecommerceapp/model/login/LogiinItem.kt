@@ -1,4 +1,4 @@
-package mo.zain.ecommerceapp.model
+package mo.zain.ecommerceapp.model.login
 
 data class LogiinItem(
     val credit: Int,

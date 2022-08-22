@@ -1,15 +1,16 @@
 package mo.zain.ecommerceapp.viewModel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import mo.zain.ecommerceapp.model.*
+import mo.zain.ecommerceapp.model.category.DataX
+import mo.zain.ecommerceapp.model.home.Data
+import mo.zain.ecommerceapp.model.login.LoginResponse
+import mo.zain.ecommerceapp.model.registration.RegisterResponse
 import mo.zain.ecommerceapp.repository.UserRepository
-import okhttp3.MultipartBody
 import javax.inject.Inject
 
 @HiltViewModel
@@ -19,7 +20,7 @@ class UserViewModel
 
     //
     private val _registResponse:MutableLiveData<RegisterResponse> = MutableLiveData()
-    var registerDetails:RegisterResponse? = null
+    var registerDetails: RegisterResponse? = null
 
     fun register():MutableLiveData<RegisterResponse>{
         return _registResponse
@@ -27,7 +28,7 @@ class UserViewModel
 
     //
     private val _loginResponse:MutableLiveData<LoginResponse> = MutableLiveData()
-    var loginDetails:LoginResponse? =null
+    var loginDetails: LoginResponse? =null
     fun Login():MutableLiveData<LoginResponse>{
         return _loginResponse
     }
@@ -35,13 +36,17 @@ class UserViewModel
 
     private val _response=MutableLiveData<Data>()
     val responseItem:LiveData<Data>
-        get() = _response
+    get() = _response
+
+    private val _responseCategory=MutableLiveData<DataX>()
+    val responseCategory:LiveData<DataX>
+    get() = _responseCategory
 
 
     init {
         register()
         Login()
-        //getHome()
+        getCategory()
     }
 
     //Call In Fragment S00N -->
@@ -64,6 +69,13 @@ class UserViewModel
             }
         }
 
+    }
+    fun getCategory()=viewModelScope.launch {
+        repository.getCategory().let {it->
+            if (it.isSuccessful){
+                _responseCategory.postValue(it.body()!!.data)
+            }
+        }
     }
 
 

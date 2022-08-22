@@ -1,4 +1,4 @@
-package mo.zain.ecommerceapp.model
+package mo.zain.ecommerceapp.model.registration
 
 data class RegisterResponse(
     val `data`: RegistrationItem,

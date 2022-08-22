@@ -12,6 +12,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
@@ -22,6 +24,8 @@ import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.launch
 import mo.zain.ecommerceapp.R
 import mo.zain.ecommerceapp.adapter.BannerAdapter
+import mo.zain.ecommerceapp.adapter.CategoryAdapter
+import mo.zain.ecommerceapp.adapter.ProductAdapter
 import mo.zain.ecommerceapp.viewModel.UserViewModel
 
 
@@ -34,6 +38,10 @@ class HomeFragment : Fragment() {
     private var mySharedPreferences: SharedPreferences? =null
     private var bannerAdapter:BannerAdapter ? =null
     private var sliderHandeler:Handler = Handler()
+    lateinit var recyclerView: RecyclerView
+    private var categoryAdapter:CategoryAdapter ?=null
+    lateinit var productRv:RecyclerView
+    private var productAdapter:ProductAdapter?=null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,7 +70,16 @@ class HomeFragment : Fragment() {
             }
         })
 
-        adsImage=view.findViewById(R.id.adsImage)
+        //adsImage=view.findViewById(R.id.adsImage)
+
+        recyclerView=view.findViewById(R.id.rv)
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+
+
+        productRv=view.findViewById(R.id.productRv)
+        productRv.setHasFixedSize(true)
+        productRv.layoutManager=GridLayoutManager(requireContext(),2)
 
 
         mySharedPreferences = requireActivity().getSharedPreferences("Token", AppCompatActivity.MODE_PRIVATE)
@@ -82,12 +99,25 @@ class HomeFragment : Fragment() {
             bannerAdapter= BannerAdapter(data.banners,viewPager2)
             viewPager2.adapter=bannerAdapter
             bannerAdapter?.notifyDataSetChanged()
+
+            productAdapter= ProductAdapter(data.products)
+            productRv.adapter=productAdapter
+            productAdapter?.notifyDataSetChanged()
+
+
             //
-            Glide.with(requireContext())
-                .load(data.ad)
-                .into(adsImage)
+//            Glide.with(requireContext())
+//                .load(data.ad)
+//                .into(adsImage)
 
 //            Toast.makeText(requireContext(), ""+data.ad, Toast.LENGTH_SHORT).show()
+        })
+
+        viewModel.responseCategory.observe(requireActivity(),{data->
+            categoryAdapter= CategoryAdapter(data.data)
+            recyclerView.adapter=categoryAdapter
+            categoryAdapter!!.notifyDataSetChanged()
+            //Toast.makeText(requireContext(), ""+data.data[0].image, Toast.LENGTH_SHORT).show()
         })
     }
 

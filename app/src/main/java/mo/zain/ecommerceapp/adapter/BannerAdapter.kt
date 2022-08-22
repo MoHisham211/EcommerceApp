@@ -10,11 +10,11 @@ import com.bumptech.glide.Glide
 import com.makeramen.roundedimageview.RoundedImageView
 import kotlinx.coroutines.Runnable
 import mo.zain.ecommerceapp.R
-import mo.zain.ecommerceapp.model.Banner
+import mo.zain.ecommerceapp.model.home.Banner
 
 
 //: RecyclerView.Adapter<BannerAdapter.ViewHolder>()
-class BannerAdapter(val sliderItems: MutableList<Banner>,val viewPager2: ViewPager2) : RecyclerView.Adapter<BannerAdapter.ViewHolder>(){
+class BannerAdapter(val sliderItems: MutableList<Banner>, val viewPager2: ViewPager2) : RecyclerView.Adapter<BannerAdapter.ViewHolder>(){
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
