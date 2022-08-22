@@ -45,6 +45,6 @@ class ProductAdapter(val productList:List<Product>): RecyclerView.Adapter<Produc
     }
 
     override fun getItemCount(): Int {
-        return 6
+        return productList.size
     }
 }

@@ -17,4 +17,6 @@ class UserRepository
     suspend fun getHome(token:String)=apiService.getHome(token)
 
     suspend fun getCategory()=apiService.getCategory()
+
+    suspend fun searchProduct(text:String)=apiService.searchProduct(text)
 }

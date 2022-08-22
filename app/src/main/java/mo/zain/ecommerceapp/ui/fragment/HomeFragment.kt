@@ -3,11 +3,15 @@ package mo.zain.ecommerceapp.ui.fragment
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
@@ -42,6 +46,8 @@ class HomeFragment : Fragment() {
     private var categoryAdapter:CategoryAdapter ?=null
     lateinit var productRv:RecyclerView
     private var productAdapter:ProductAdapter?=null
+    lateinit var searchBtn:TextView
+    lateinit var searchTxt:EditText
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -80,6 +86,45 @@ class HomeFragment : Fragment() {
         productRv=view.findViewById(R.id.productRv)
         productRv.setHasFixedSize(true)
         productRv.layoutManager=GridLayoutManager(requireContext(),2)
+
+        searchTxt=view.findViewById(R.id.search)
+
+        searchTxt.addTextChangedListener( object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                lifecycleScope.launch {
+                    viewModel.searchRepo(p0!!.toString())
+                    if (viewModel.search().value?.status==true){
+                        productAdapter= ProductAdapter(viewModel.search().value?.data!!.data)
+                        productRv.adapter=productAdapter
+                        productAdapter?.notifyDataSetChanged()
+                    }
+                }
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                lifecycleScope.launch {
+                    viewModel.searchRepo(p0!!.toString())
+                    if (viewModel.search().value?.status==true){
+                        productAdapter= ProductAdapter(viewModel.search().value?.data!!.data)
+                        productRv.adapter=productAdapter
+                        productAdapter?.notifyDataSetChanged()
+                    }
+                }
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                lifecycleScope.launch {
+                    viewModel.searchRepo(p0!!.toString())
+                    if (viewModel.search().value?.status==true){
+                        productAdapter= ProductAdapter(viewModel.search().value?.data!!.data)
+                        productRv.adapter=productAdapter
+                        productAdapter?.notifyDataSetChanged()
+                    }
+                }
+            }
+
+        })
 
 
         mySharedPreferences = requireActivity().getSharedPreferences("Token", AppCompatActivity.MODE_PRIVATE)
@@ -130,5 +175,16 @@ class HomeFragment : Fragment() {
         super.onResume()
         sliderHandeler.postDelayed(sliderRunnable,3000)
     }
+
+    /**
+         lifecycleScope.launch {
+        viewModel.searchRepo("ايفون")
+            if (viewModel.search().value?.status==true){
+            productAdapter= ProductAdapter(viewModel.search().value?.data!!.data)
+            productRv.adapter=productAdapter
+            productAdapter?.notifyDataSetChanged()
+            }
+        }
+     */
 
 }

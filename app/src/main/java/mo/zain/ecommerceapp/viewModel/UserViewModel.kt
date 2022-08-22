@@ -9,6 +9,7 @@ import kotlinx.coroutines.launch
 import mo.zain.ecommerceapp.model.category.DataX
 import mo.zain.ecommerceapp.model.home.Data
 import mo.zain.ecommerceapp.model.login.LoginResponse
+import mo.zain.ecommerceapp.model.product.ProductsResponse
 import mo.zain.ecommerceapp.model.registration.RegisterResponse
 import mo.zain.ecommerceapp.repository.UserRepository
 import javax.inject.Inject
@@ -21,7 +22,6 @@ class UserViewModel
     //
     private val _registResponse:MutableLiveData<RegisterResponse> = MutableLiveData()
     var registerDetails: RegisterResponse? = null
-
     fun register():MutableLiveData<RegisterResponse>{
         return _registResponse
     }
@@ -32,6 +32,16 @@ class UserViewModel
     fun Login():MutableLiveData<LoginResponse>{
         return _loginResponse
     }
+
+    //
+    private val _searchResponse:MutableLiveData<ProductsResponse> = MutableLiveData()
+    var searchDetails:ProductsResponse? =null
+    fun search():MutableLiveData<ProductsResponse>{
+        return _searchResponse
+    }
+
+
+
     //
 
     private val _response=MutableLiveData<Data>()
@@ -47,6 +57,7 @@ class UserViewModel
         register()
         Login()
         getCategory()
+        search()
     }
 
     //Call In Fragment S00N -->
@@ -59,6 +70,11 @@ class UserViewModel
     {
         loginDetails=repository.loginUser(email, password)
         _loginResponse.value=loginDetails
+    }
+
+    suspend fun searchRepo(text:String){
+        searchDetails=repository.searchProduct(text)
+        _searchResponse.value=searchDetails
     }
 
     fun getHome(token:String)=viewModelScope.launch {
@@ -77,6 +93,7 @@ class UserViewModel
             }
         }
     }
+
 
 
 }
