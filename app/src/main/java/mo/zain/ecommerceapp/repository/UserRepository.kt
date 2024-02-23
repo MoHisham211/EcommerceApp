@@ -19,4 +19,8 @@ class UserRepository
     suspend fun getCategory()=apiService.getCategory()
 
     suspend fun searchProduct(text:String)=apiService.searchProduct(text)
+
+    suspend fun getCatDetails(id:Int)=apiService.getCatDetails(id)
+
+    suspend fun favorFun(token: String,product_id:Int)=apiService.favorFun(token,product_id)
 }

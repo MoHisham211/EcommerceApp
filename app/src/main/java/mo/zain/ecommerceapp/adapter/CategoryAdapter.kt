@@ -1,10 +1,13 @@
 package mo.zain.ecommerceapp.adapter
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import mo.zain.ecommerceapp.R
@@ -33,6 +36,13 @@ class CategoryAdapter(val listOfCategory:List<DataXX>): RecyclerView.Adapter<Cat
             .into(holder.imageView)
 
         holder.textView.text=currentData.name
+
+        holder.itemView.setOnClickListener {
+            val bundle:Bundle= Bundle()
+            bundle.putInt("id",currentData.id)
+            holder.itemView.findNavController().navigate(R.id.action_homeFragment_to_categoryDetailsFragment,bundle)
+            //Toast.makeText(holder.itemView.context, ""+currentData.id, Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun getItemCount(): Int {

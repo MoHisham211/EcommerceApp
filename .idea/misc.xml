@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
@@ -15,19 +14,34 @@
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/header.xml" value="0.1" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic__057190_more_o_icon.xml" value="0.1305" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic__057625_facebook_media_network_social_icon.xml" value="0.1735" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic__52344_favorite_icon.xml" value="0.18" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic__993685_brand_brands_google_logo_logos_icon.xml" value="0.1735" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic__home.xml" value="0.1305" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic_add.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic_baseline_arrow_right_alt_24.xml" value="0.18" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic_blue_negative.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic_blue_plus.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic_cart_icon.xml" value="0.18" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic_category_icon.xml" value="0.18" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic_home_house.xml" value="0.18" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.18" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic_primary_hexa_shape.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic_red_heart.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/ic_search.xml" value="0.18" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/image_details.xml" value="0.135" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/login_style.xml" value="0.1735" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/nav_background.xml" value="0.117" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/rounded_stroke_blue_small.xml" value="0.1" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/rounded_stroke_white.xml" value="0.1" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/drawable/search_style.xml" value="0.118" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/font/medium.xml" value="0.1" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/layout/category_item.xml" value="0.2" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/layout/fragment_category_details.xml" value="0.14427083333333332" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/layout/fragment_favorite.xml" value="0.17407407407407408" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/layout/fragment_home.xml" value="0.21568627450980393" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/layout/fragment_login.xml" value="0.264" />
+        <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/layout/fragment_product_details.xml" value="0.25" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/layout/fragment_registration.xml" value="0.25" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/layout/product_item.xml" value="0.3371710526315789" />
         <entry key="..\:/AndroidProjects/EcommerceApp/app/src/main/res/layout/slider_item.xml" value="0.25" />
@@ -37,7 +51,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

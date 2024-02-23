@@ -1,5 +1,7 @@
 package mo.zain.ecommerceapp.model.home
 
+import java.io.Serializable
+
 data class Product(
     val description: String,
     val discount: Int,
@@ -11,4 +13,4 @@ data class Product(
     val name: String,
     val old_price: Double,
     val price: Double
-)
+) : Serializable

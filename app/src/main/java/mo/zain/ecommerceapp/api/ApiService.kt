@@ -1,10 +1,13 @@
 package mo.zain.ecommerceapp.api
 
+import mo.zain.ecommerceapp.model.category.CategoryDetailesResponse
 import mo.zain.ecommerceapp.model.category.CategoryResponse
+import mo.zain.ecommerceapp.model.favorite.FavoriteRespo
 import mo.zain.ecommerceapp.model.home.HomeResponse
 import mo.zain.ecommerceapp.model.login.LoginResponse
 import mo.zain.ecommerceapp.model.product.ProductsResponse
 import mo.zain.ecommerceapp.model.registration.RegisterResponse
+import mo.zain.ecommerceapp.ui.fragment.FavoriteFragment
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -30,6 +33,15 @@ interface ApiService {
     @GET("categories")
     suspend fun getCategory():Response<CategoryResponse>
 
+
+    @GET("categories/{id}")
+    suspend fun getCatDetails(@Path("id") id:Int):Response<CategoryDetailesResponse>
+
+
     @POST("products/search")
     suspend fun searchProduct(@Query("text") text:String): ProductsResponse
+
+    @POST("favorites")
+    suspend fun favorFun(@Header("Authorization") token: String,@Query("product_id") product_id:Int):FavoriteRespo
+
 }

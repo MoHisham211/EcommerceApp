@@ -1,10 +1,14 @@
 package mo.zain.ecommerceapp.adapter
 
+import android.graphics.Paint
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import mo.zain.ecommerceapp.R
@@ -35,13 +39,26 @@ class ProductAdapter(val productList:List<Product>): RecyclerView.Adapter<Produc
         val currentProduct:Product=productList.get(position)
 
         holder.tv_product_name.text=currentProduct.name
-        holder.tv_product_price.text=currentProduct.price.toString()
-        holder.tv_product_old_price.text=currentProduct.old_price.toString()
-        holder.tv_product_discount.text=currentProduct.discount.toString()
-
         Glide.with(holder.itemView.context)
             .load(currentProduct.image)
             .into(holder.iv_product)
+        holder.tv_product_price.text=currentProduct.price.toString()
+
+        if (currentProduct.discount>0){
+            holder.tv_product_discount.text=currentProduct.discount.toString() +"%"
+            holder.tv_product_old_price.text=currentProduct.old_price.toString()
+            holder.tv_product_old_price.paintFlags=Paint.STRIKE_THRU_TEXT_FLAG
+        }else
+        {
+            holder.tv_product_discount.visibility=View.GONE
+            holder.tv_product_old_price.visibility=View.GONE
+        }
+        holder.itemView.setOnClickListener {
+            val bundle:Bundle= Bundle()
+            bundle.putSerializable("CurrentProduct",currentProduct)
+            holder.itemView.findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,bundle)
+        }
+
     }
 
     override fun getItemCount(): Int {

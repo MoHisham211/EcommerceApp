@@ -128,7 +128,7 @@ class HomeFragment : Fragment() {
 
 
         mySharedPreferences = requireActivity().getSharedPreferences("Token", AppCompatActivity.MODE_PRIVATE)
-        val myToken =mySharedPreferences!!.getString("Token","yJiKSXz12HpIvLRJZnDH9pUpkQ1AmdcNzc04YkN88IQqlum8rKQ0yHK0tMg9gjGDVzxl11")
+        val myToken =mySharedPreferences!!.getString("Token","null")
         myToken?.let { getHome(it) }
 
 
